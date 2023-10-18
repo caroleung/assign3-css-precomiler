@@ -1,0 +1,334 @@
+// 5  Variables
+$font-quando: Quando;
+$color-text: #787878;
+$color-link: #111111;
+$color-link-hover: #999999;
+$color-primary: #35c4ce;
+
+// Mixin 
+@mixin font-styles($family, $weight, $size, $color) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+
+// Mixin 
+@mixin link-styles($color, $hover-color) {
+    font-weight: 400;
+    text-decoration: none;
+    color: $color;
+    transition: .20s;
+    &:hover {
+        color: $hover-color;
+    }
+}
+
+
+.top-logo {
+    width: 200px;
+    margin: 20px auto 40px;
+}
+
+
+body {
+    font-family: $font-quando;
+    font-size: 15px;
+    color: $color-text;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    margin-bottom: 25px;
+    line-height: 1.6em;
+}
+
+a {
+    font-weight: 400;
+    text-decoration: none;
+    color: $color-link;
+    transition: .20s;
+
+    &:hover {
+        color: $color-link-hover;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.3em;
+    word-wrap: break-word;
+    color: $color-text;
+}
+
+h1 {
+    font-size: 37px;
+}
+
+h2 {
+    font-size: 31px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 21px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 15px;
+}
+
+// Nestings
+.container {
+    width: 94%;
+    margin: 0 auto;
+
+    // Nesting 
+    header {
+        font-family: 'Josefin Sans', sans-serif;
+        nav {
+            display: none;
+        }
+
+        .top-logo {
+            width: 200px;
+            margin: 20px auto 40px;
+        }
+    }
+}
+
+// Nesting 
+.image-part {
+    margin-bottom: 10px;
+
+    
+    img {
+        transition: transform 3.5s ease-in-out;
+
+        
+        &:hover {
+            transform: scale(1.5,1.5);
+        }
+    }
+}
+
+// Nesting 
+@media only screen and (min-width: 650px) {
+    .container {
+        width: 90%;
+    }
+
+    header nav {
+        max-width: 1170px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+
+        // Nesting 
+        ul {
+            display: flex;
+
+            // Nesting 
+            li {
+                margin: 0 15px;
+                position: relative;
+                line-height: 24px;
+
+                // Nesting 
+                a {
+                    font-family: 'Josefin Sans', sans-serif;
+                    color: $color-text;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 900;
+
+                    // Nesting
+                    &:hover {
+                        color: $color-primary;
+                    }
+                }
+
+                // Nesting 
+                &.menu-item-has-children > a::after {
+                    margin-left: 7px;
+                    font-family: 'FontAwesome';
+                    font-size: 13px;
+                    color: $color-text;
+                    content: '\f078';
+                }
+
+                // Nesting
+                &.current-menu-item a {
+                    border-bottom: 2px solid $color-text;
+                }
+            }
+        }
+    }
+
+    // Nesting 
+    ul ul {
+        visibility: hidden;
+        opacity: 0;
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        left: 0;
+        background: #f0f0f0;
+        transition: all 0.2s ease-out;
+
+        // Nesting
+        li {
+            border-top: 1px solid #e9e9e9;
+            margin: 0;
+
+            // Nesting 
+            a {
+                display: block;
+                color: #111111;
+                min-width: 175px;
+                margin: 0;
+                padding: 20px 10px;
+                line-height: 1.4em;
+                letter-spacing: 1px;
+                transition: .35s;
+
+                // Nesting 
+                &:hover {
+                    background: #ffffff;
+                    color: #000;
+                }
+            }
+        }
+    }
+    .footer-logo {
+        width: 200px;
+        margin: 20px auto;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    footer {
+        padding: 30px 0;
+        text-align: center;
+        background: #eaf2ff;
+        color: #989898;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px; 
+    }
+    
+    #footer-copyright {
+        padding: 20px 0;
+        font-size: 12px;
+        color: #989898;
+        margin-top: auto; 
+    }
+    
+    .footer-social-links {
+        padding: 20px 0;
+        line-height: 2em;
+        margin-bottom: auto; 
+        a {
+            margin: 0 10px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    
+        i {
+            margin-right: 5px;
+        }
+    
+        a span {
+            display: none;
+        }
+    }
+
+
+    // Nesting 
+    .footer-social-links a {
+        margin: 0 28px;
+
+        // Nesting 
+        i {
+            margin-right: 5px;
+        }
+
+        // Nesting 
+        span {
+            display: inline;
+            font-size: 11px;
+        }
+    }
+}
+
+
+article {
+    display: flex;
+    align-items: flex-start; 
+
+    .image-part {
+        margin-right: 20px; 
+
+        img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 3.5s ease-in-out;
+
+            &:hover {
+                transform: scale(1.5, 1.5);
+            }
+        }
+    }
+
+    .content-part {
+        flex: 1;
+        padding-left: 50px;
+
+        .post-header {
+            h3 {
+                margin-top: 0;
+            }
+
+            a {
+                color: #324360;
+                text-transform: uppercase;
+                font-size: 26px;
+                font-weight: 900;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                line-height: 1.3em;
+                transition: all .3s ease;
+
+                &:hover {
+                    color: #35c4ce;
+                }
+            }
+        }
+
+        .post-list-entry {
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+}
